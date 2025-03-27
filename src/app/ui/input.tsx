@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 type InputProps = {
   id: string;
   label: string;
-  value: number;
+  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type?: string;
 };
@@ -16,6 +16,10 @@ export default function Input({
   onChange,
   type = "text",
 }: InputProps) {
+  const [touched, setTouched] = useState(false);
+
+  const isValidNumber = value.trim() === "" || !isNaN(Number(value));
+
   return (
     <div className="flex flex-col m-4">
       <label htmlFor={id} className="mb-1 font-medium text-gray-700">
@@ -25,9 +29,21 @@ export default function Input({
         id={id}
         type={type}
         value={value}
-        onChange={onChange}
-        className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+        onChange={(e) => {
+          onChange(e);
+          if (!touched) setTouched(true);
+        }}
+        className={`border p-3 rounded-md focus:outline-none transition duration-150 ease-in-out ${
+          !isValidNumber && touched
+            ? "border-red-500 focus:ring-2 focus:ring-red-500"
+            : "border-gray-300 focus:ring-2 focus:ring-blue-500"
+        }`}
       />
+      {!isValidNumber && touched && (
+        <p className="text-red-500 text-sm mt-1">
+          Please enter a valid number.
+        </p>
+      )}
     </div>
   );
 }

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tip Calculator | Quickly Calculate Your Tips",
+  title: "Tip Calculator | Quickly Calculate Your Tips & Split Bills",
   description:
     "Quickly and easily calculate tips with this intuitive Tip Calculator app. Enter your bill amount, choose or set a custom tip percentage, and instantly see totals. Ideal for restaurants, dining out, or quick budgeting!",
 };
