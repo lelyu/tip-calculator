@@ -11,7 +11,7 @@ export default function Card({
 }) {
   const total_tip = parseFloat(bill_amount) * parseFloat(tip_percentage) * 0.01;
   return (
-    <div className="first:bg-blue-200 flex-auto border-2 border-gray-300 p-4 m-4">
+    <div className="first:bg-blue-200 dark:first:bg-blue-400 flex-auto border-2 border-gray-300 p-4 m-4 rounded-lg">
       <h1>{tip_percentage} %</h1>
       <hr />
       <h1>Tip: {Math.trunc(total_tip * 100) / 100}</h1>
