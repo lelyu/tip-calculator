@@ -21,7 +21,7 @@ export default function Input({
   const isValidNumber = value.trim() === "" || !isNaN(Number(value));
 
   return (
-    <div className="flex flex-col m-4">
+    <div className="flex flex-col ml-4 mr-4 mt-2">
       <label htmlFor={id} className="mb-1 font-medium text-gray-700">
         {label}
       </label>
